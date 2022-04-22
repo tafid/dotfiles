@@ -107,8 +107,15 @@ alias d='docker'
 alias g='git'
 alias dc='docker-compose'
 alias grep='grep --color=auto'
-alias cc='eval $(ssh-agent); docker run --rm --interactive --tty --volume $PWD:/app --volume $SSH_AUTH_SOCK:/ssh-auth.socker --user $(id -u):$(id -g) composer'
+alias cc2='eval $(ssh-agent); docker run --rm --interactive --tty --volume $PWD:/app --volume $SSH_AUTH_SOCK:/ssh-auth.socker --user $(id -u):$(id -g) composer'
+alias cc="dc run --rm -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent php-fpm sh -c 'apt update; apt install -y git; bash'"
+alias ca="dc run --rm -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent php-fpm sh -c 'apk update; composer self-update; bash'"
+alias cext='composer --ignore-platform-req="ext-*"'
+alias cest='sudo rm -rf tests/_output/* && dc exec php-fpm ./vendor/bin/codecept run acceptance'
 
 export PATH="$HOME/bin:$PATH"
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#e9d8a6,bg=#005f73,bold,underline"
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -115,7 +115,7 @@ alias cest='sudo rm -rf tests/_output/* && dc exec php-fpm ./vendor/bin/codecept
 
 export PATH="$HOME/bin:$PATH"
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#e9d8a6,bg=#005f73,bold,underline"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffdd00,bg=#005f73,bold,underline"
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

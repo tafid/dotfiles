@@ -112,6 +112,7 @@ alias cc="dc run --rm -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent p
 alias ca="dc run --rm -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent php-fpm sh -c 'apk update; composer self-update; bash'"
 alias cext='composer --ignore-platform-req="ext-*"'
 alias cest='sudo rm -rf tests/_output/* && dc exec php-fpm ./vendor/bin/codecept run acceptance'
+alias safe-vendor='git config --global --add safe.directory "*"'
 
 export PATH="$HOME/bin:$PATH"
 

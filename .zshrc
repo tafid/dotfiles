@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/tofid/.oh-my-zsh"
@@ -98,21 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias l="ls -lAF ${ls_options}"
-alias lh="ls -lF ${ls_options}"
-alias la="ls -laF ${ls_options}"
-alias ll="ls -lAF ${ls_options}"
-alias c='composer'
-alias d='docker'
-alias g='git'
-alias dc='docker-compose'
-alias grep='grep --color=auto'
-alias cc2='eval $(ssh-agent); docker run --rm --interactive --tty --volume $PWD:/app --volume $SSH_AUTH_SOCK:/ssh-auth.socker --user $(id -u):$(id -g) composer'
-alias cc="dc run --rm -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent php-fpm sh -c 'apt update; apt install -y git; bash'"
-alias ca="dc run --rm -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent php-fpm sh -c 'apk update; composer self-update; bash'"
-alias cext='composer --ignore-platform-req="ext-*"'
-alias cest='sudo rm -rf tests/_output/* && dc exec php-fpm ./vendor/bin/codecept run acceptance'
-alias safe-vendor='git config --global --add safe.directory "*"'
+source $HOME/.aliases
 
 export PATH="$HOME/bin:$PATH"
 

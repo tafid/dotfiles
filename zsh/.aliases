@@ -1,0 +1,13 @@
+alias l="ls -lAF ${ls_options}"
+alias lh="ls -lF ${ls_options}"
+alias la="ls -laF ${ls_options}"
+alias ll="ls -lAF ${ls_options}"
+alias c='composer'
+alias d='docker'
+alias g='git'
+alias vim='nvim'
+alias cat='batcat'
+alias dc='docker compose'
+alias grep='grep --color=auto'
+alias cc="dc run --rm -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent php-fpm sh -c 'apt update; apt install -y git; bash'"
+alias ca="dc run --rm -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent php-fpm sh -c 'apk update; composer self-update; bash'"

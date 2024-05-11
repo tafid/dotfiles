@@ -1,0 +1,15 @@
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	safe = "!git config --global --add safe.directory $(pwd)"
+[user]
+	email = andreyklochok@gmail.com
+	name = Andrii Klochok
+[core]
+	editor = nvim
+	autocrlf = input
+	excludesFile = ~/.gitignore_global
+[safe]
+	directory = *

@@ -26,5 +26,5 @@ call plug#end()
 
 " --- Colors
 
-set background=dark
-colorscheme tokyonight-night
+" set background=dark
+" colorscheme tokyonight-day

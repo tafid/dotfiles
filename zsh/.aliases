@@ -8,10 +8,11 @@ alias vim='nvim'
 alias cat='batcat'
 alias dc='docker compose'
 alias grep='grep --color=auto'
-alias cc='eval $(ssh-agent); dc run --rm -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent --user $(id -u):$(id -g) php-fpm sh -c "apt update; apt install -y git; bash"'
-alias ca='eval $(ssh-agent); dc run --rm -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent --user $(id -u):$(id -g) php-fpm sh -c "apk update; composer self-update; bash"'
+alias cu='eval $(ssh-agent); dc run -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent --user $(id -u):$(id -g) php-fpm sh -c "apt update; apt install -y git; bash"'
+alias ca='eval $(ssh-agent); dc run -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent php-fpm sh -c "apk update; composer self-update; bash"'
 alias nginx-proxy="docker network create nginx-proxy-network-127.0.0.2; docker run -d -p 80:80 --rm --network nginx-proxy-network-127.0.0.2 -v /home/tofid/.nginx_proxy.conf:/etc/nginx/conf.d/nginx_proxy.conf:ro -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy"
-alias c='eval $(ssh-agent); \
+alias c='composer'
+alias cc='eval $(ssh-agent); \
   docker run --rm --interactive --tty \
   --volume $PWD:/app \
   --volume $SSH_AUTH_SOCK:/ssh-auth.sock \

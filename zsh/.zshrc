@@ -107,6 +107,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/bin:$PATH"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffdd00,bg=#005f73,bold,underline"
+ZSH_DEISABLE_COMPFIX=true
 
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

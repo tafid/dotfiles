@@ -3,6 +3,21 @@
 set nu
 set relativenumber
 
+" indentation
+set autoindent      " Keep indentation from previous line
+set smartindent     " Automatically inserts indentation in some cases
+set cindent         " Like smartindent, but stricter and more customisable
+
+set expandtab       " Use softtabstop spaces instead of tab characters for indentation
+set shiftwidth=4    " Indent by 4 spaces when using >>, <<, == etc.
+set softtabstop=4   " Indent by 4 spaces when pressing <TAB>
+
+if has ("autocmd")
+    " File type detection. Indent based on filetype. Recommended.
+    filetype plugin indent on
+endif
+
+
 " In insert or command mode, move normally by using Ctrl
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>

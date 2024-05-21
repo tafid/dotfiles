@@ -5,7 +5,8 @@ alias ll="ls -lAF ${ls_options}"
 alias d='docker'
 alias g='git'
 alias vim='nvim'
-alias cat='batcat'
+alias bat='batcat'
+alias cat='batcat -p'
 alias dc='docker compose'
 alias grep='grep --color=auto'
 alias cu='eval $(ssh-agent); dc run -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent --user $(id -u):$(id -g) php-fpm sh -c "apt update; apt install -y git; bash"'
@@ -21,3 +22,4 @@ alias cc='eval $(ssh-agent); \
   --env SSH_AUTH_SOCK=/ssh-auth.sock \
   --user $(id -u):$(id -g) \
   composer/composer'
+alias ls-tmux="tmux list-panes -aF '#{session_name}:#{window_index}:#{pane_index}	#{pane_tty}	#{pane_pid}	#{pane_current_command}'"

@@ -4,6 +4,7 @@
 	br = branch
 	co = checkout
 	safe = "!git config --global --add safe.directory $(pwd)"
+	d = difftool
 [user]
 	email = andreyklochok@gmail.com
 	name = Andrii Klochok
@@ -13,3 +14,8 @@
 	excludesFile = ~/.gitignore_global
 [safe]
 	directory = *
+[diff]
+    tool = vimdiff
+[difftool]
+    tool = vimdiff
+    prompt = false

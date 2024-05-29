@@ -1,4 +1,7 @@
+source ~/.config/nvim/init.vim
+
 set multiple-cursors
+
 let g:multi_cursor_use_default_mapping=0
 " Default mapping
 let g:multi_cursor_start_word_key      = '<C-n>'
@@ -35,4 +38,6 @@ else
   nnoremap <leader>f <cmd>Telescope find_files<cr>
 endif
 
-source ~/.config/nvim/init.vim
+set NERDTree
+
+nnoremap <leader>n :NERDTreeFocus<CR>

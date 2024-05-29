@@ -4,12 +4,13 @@ alias la="ls -laF ${ls_options}"
 alias ll="ls -lAF ${ls_options}"
 alias d='docker'
 alias g='git'
+alias lg='lazygit'
 alias vim='nvim'
 alias bat='batcat'
 alias cat='batcat -p'
 alias dc='docker compose'
 alias grep='grep --color=auto'
-alias cu='eval $(ssh-agent); dc run -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent --user $(id -u):$(id -g) php-fpm sh -c "apt update; apt install -y git; bash"'
+alias cu='eval $(ssh-agent); dc run -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent php-fpm sh -c "apt update; apt install -y git; bash"'
 alias ca='eval $(ssh-agent); dc run -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent php-fpm sh -c "apk update; composer self-update; bash"'
 alias nginx-proxy="docker network create nginx-proxy-network-127.0.0.2; docker run -d -p 80:80 --rm --network nginx-proxy-network-127.0.0.2 -v /home/tofid/.nginx_proxy.conf:/etc/nginx/conf.d/nginx_proxy.conf:ro -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy"
 alias c='composer'

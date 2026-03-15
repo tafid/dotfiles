@@ -4,4 +4,4 @@
 umask 002
 
 # bind capslock to ctrl
-setxkbmap -option caps:ctrl_modifier
+# setxkbmap -option caps:ctrl_modifier

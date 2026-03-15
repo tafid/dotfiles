@@ -1,0 +1,83 @@
+;; =========================================================
+;; Глобальні налаштування Kanata
+;; =========================================================
+
+(defcfg
+  ;; Передавати всі невизначені клавіші напряму в систему
+  process-unmapped-keys yes
+
+  ;; Невелика затримка між дуже швидкими подіями клавіш.
+  ;; Допомагає tap-hold-конфігам працювати стабільніше.
+  rapid-event-delay 5
+)
+
+;; =========================================================
+;; Фізичні клавіші, які Kanata перехоплює
+;; =========================================================
+
+(defsrc
+  caps
+  a
+  s
+  d
+  f
+  j
+  k
+  l
+  ;
+)
+
+;; =========================================================
+;; Таймінги
+;; =========================================================
+
+(defvar
+  ;; Коротке натискання = літера
+  tap-time 180
+
+  ;; Довше утримання = модифікатор
+  hold-time 220
+)
+
+;; =========================================================
+;; Аліаси
+;; =========================================================
+
+(defalias
+  ;; Caps:
+  ;; tap  -> Esc
+  ;; hold -> Left Ctrl
+  escctrl (tap-hold-release $tap-time $hold-time esc lctl)
+
+  ;; -------------------------------------------------------
+  ;; Home-row modifiers
+  ;; -------------------------------------------------------
+
+  ;; Ліва сторона
+  a (multi f24 (tap-hold-release $tap-time $hold-time a lmet))
+  s (multi f24 (tap-hold-release $tap-time $hold-time s lalt))
+  d (multi f24 (tap-hold-release $tap-time $hold-time d lsft))
+  f (multi f24 (tap-hold-release $tap-time $hold-time f lctl))
+
+  ;; Права сторона
+  j (multi f24 (tap-hold-release $tap-time $hold-time j rctl))
+  k (multi f24 (tap-hold-release $tap-time $hold-time k rsft))
+  l (multi f24 (tap-hold-release $tap-time $hold-time l ralt))
+  ; (multi f24 (tap-hold-release $tap-time $hold-time ; rmet))
+)
+
+;; =========================================================
+;; Основний layer
+;; =========================================================
+
+(deflayer base
+  @escctrl
+  @a
+  @s
+  @d
+  @f
+  @j
+  @k
+  @l
+  @;
+)

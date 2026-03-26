@@ -1,0 +1,83 @@
+{
+  "ignoreKeyboardLayout": true,
+  "grabBackFocus": true,
+  "settingsVersion": "2.3",
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "j,k",
+      "pattern": "https?://www.facebook.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://ide.c9.io/*"
+    },
+    {
+      "passKeys": "f",
+      "pattern": "https?://www.youtube.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.openvim.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://privat24.privatbank.ua/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://lingualeo.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://badoo.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://playdosgamesonline.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.inoreader.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.memrise.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.memrise.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.duolingo.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://thetypingcat.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.speedcoder.net/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://shop.dev/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://hiam.ahnames.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://ahnames.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://ahnames.com/*"
+    }
+  ]
+}

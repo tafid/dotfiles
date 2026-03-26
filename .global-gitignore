@@ -1,3 +1,4 @@
+# git config --global core.excludesFile ~/.dotfiles/.global-gitignore
 # Comments and blank lines are allowed.
 
 RCS
@@ -25,3 +26,11 @@ _darcs
 # My custom
 
 Makefile
+.idea
+.history
+.vscode
+.junie
+.ai
+.claude
+node_modules
+vendor

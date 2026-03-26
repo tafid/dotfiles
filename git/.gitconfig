@@ -11,7 +11,7 @@
 [core]
 	editor = nvim
 	autocrlf = input
-	excludesFile = ~/.gitignore_global
+	excludesFile = /home/tofid/.dotfiles/.global-gitignore
 [safe]
 	directory = *
 [diff]

@@ -67,3 +67,7 @@ TODO.md
 
 # composer
 vendor
+
+# IDE
+.idea
+.vscode

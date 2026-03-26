@@ -1,0 +1,152 @@
+" -- COMMON --
+
+" highlight search results
+set hlsearch
+" remove search highlight
+noremap <Esc> :nohlsearch<cr>
+" case insensitive search
+set ignorecase
+" enable case sensitive search if search term contains uppercase letters
+set smartcase
+" search while typing
+set incsearch
+" set nu
+set relativenumber
+" map black whole register
+noremap Q "_
+" paste over without overwriting default register
+xnoremap p P
+" sync clipboard
+
+set clipboard^=unnamed,unnamedplus
+
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+" indentation
+set autoindent      " Keep indentation from previous line
+set smartindent     " Automatically inserts indentation in some cases
+set cindent         " Like smartindent, but stricter and more customisable
+
+set expandtab       " Use softtabstop spaces instead of tab characters for indentation
+set shiftwidth=4    " Indent by 4 spaces when using >>, <<, == etc.
+set softtabstop=4   " Indent by 4 spaces when pressing <TAB>
+set tabstop=4       " The width of a TAB is set to 4.
+                    " Still it is a \t. It is just that
+                    " Vim will interpret it to be having
+                    " a width of 4.
+
+" выделять строку, на которой находится курсор
+set cursorline
+
+" более удобная работа с кириллицей. При нажатии <C-6> в режиме вставки, vim изменит режим с "Insert" на "Insert (lang)",
+" после чего будут вводиться русские символы. Если вернуться в нормальный режим, то все команды будут работать.
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+
+" Выставляем кодировку
+set encoding=utf-8
+set termencoding=utf-8
+
+" In insert or command mode, move normally by using Ctrl
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+
+if has('ide')
+  " mappings and options that exist only in IdeaVim
+  map <leader>f <Action>(GotoFile)
+  map <leader>g <Action>(FindInPath)
+  map <leader>b <Action>(Switcher)
+
+  if &ide =~? 'intellij idea'
+    if &ide =~? 'community'
+      " some mappings and options for IntelliJ IDEA Community Edition
+    elseif &ide =~? 'ultimate'
+      " some mappings and options for IntelliJ IDEA Ultimate Edition
+    endif
+  elseif &ide =~? 'pycharm'
+    " PyCharm specific mappings and options
+  endif
+else
+  " some mappings for Vim/Neovim
+  nnoremap <leader>f <cmd>Telescope find_files<cr>
+endif
+
+" -- IDEAVIM --
+
+" QuickScope plugin settings
+let g:qs_primary_color="#FF0000"
+let g:qs_secondary_color="#FF00FF"
+let g:qs_disable_for_diffs = 1
+
+" -- plugins
+set multiple-cursors
+set surround
+set commentary
+set easymotion
+set matchit " Extends the % key functionality
+set NERDTree
+set vim-paragraph-motion " Extends the { and } motions to ignore whitespace on otherwise empty lines
+set peekaboo " Extends dabble quote, @, CTRL-r to show a popup of the register contents https://plugins.jetbrains.com/plugin/25776-vim-peekaboo
+" set sneak
+set quickscope " Always-on highlight for a unique character in every word on a line to help use f, F, etc.
+
+" -- You can change the default prefix using mapping to <Plug>(easymotion-prefix). E.g. use map <Leader> <Plug>(easymotion-prefix) to change the prefix to a single leader - \w
+" map <Leader> <Plug>(easymotion-prefix)
+
+" disable the timeout option
+set notimeout
+
+" increase the timeoutlen (default: 1000), don't add space around the equal sign
+set timeoutlen=5000
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+
+" smart line joining
+set ideajoin
+
+" open config
+noremap <leader>cc :e ~/.dotfiles/.ideavimrc<CR>
+" source config
+noremap <leader>cs :source ~/.dotfiles/.ideavimrc<CR>:nohlsearch<CR>
+
+if has ("autocmd")
+    " File type detection. Indent based on filetype. Recommended.
+    filetype plugin indent on
+endif
+
+" multi-cursor
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+" let g:multi_cursor_start_word_key      = '<C-n>'
+" let g:multi_cursor_select_all_word_key = '<A-n>'
+" let g:multi_cursor_start_key           = 'g<C-n>'
+" let g:multi_cursor_select_all_key      = 'g<A-n>'
+" let g:multi_cursor_next_key            = '<C-n>'
+" let g:multi_cursor_prev_key            = '<C-p>'
+" let g:multi_cursor_skip_key            = '<C-x>'
+" let g:multi_cursor_quit_key            = '<Esc>'
+
+" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+" Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
+" <A-n> is used to enter accented text e.g. ñ
+" Feel free to pick your own mappings that are not affected. I like to use <leader>
+nmap <leader><C-n> <Plug>AllWholeOccurrences
+xmap <leader><C-n> <Plug>AllWholeOccurrences
+nmap <leader>g<C-n> <Plug>AllOccurrences
+xmap <leader>g<C-n> <Plug>AllOccurrences

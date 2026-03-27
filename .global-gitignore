@@ -32,5 +32,6 @@ Makefile
 .junie
 .ai
 .claude
+.tasks
 node_modules
 vendor

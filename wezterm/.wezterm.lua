@@ -35,8 +35,6 @@ wezterm.on('gui-startup', function(cmd)
 	end
 end)
 
-
-
 -- Автоматическая перезагрузка при изменении
 config.automatically_reload_config = true
 

@@ -197,3 +197,7 @@ VI_MODE_SET_CURSOR=true
 bindkey -M vicmd 'H' beginning-of-line
 bindkey -M vicmd 'L' end-of-line
 bindkey -M vicmd 'V' edit-command-line # this remaps `vv` to `V` (but overrides `visual-mode`)
+
+# Define NVM directory path
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm

@@ -135,6 +135,8 @@ alias cc='eval $(ssh-agent); \
 alias ls-tmux="tmux list-panes -aF '#{session_name}:#{window_index}:#{pane_index}	#{pane_tty}	#{pane_pid}	#{pane_current_command}'"
 alias get-resource='psql -h localhost -p 50005 -U sol rcp -c "select * from resource where time >= to_month()" --csv -t -q -X > ~/trash/res.csv'
 alias copy='xclip -sel clip'
+alias wezterm='flatpak run org.wezfurlong.wezterm'
+
 # alias set-resource='psql -h localhost -p 5432 -U sol rcp -c "\COPY resource FROM /home/tofid/trash/res.csv with delimiter \',\' CSV;"'
 
 # Access device web browser settings using WebHID

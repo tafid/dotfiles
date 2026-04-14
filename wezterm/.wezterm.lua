@@ -8,6 +8,9 @@ local resurrect = wezterm.plugin.require('https://github.com/MLFlexer/resurrect.
 local config = wezterm.config_builder()
 local act = wezterm.action
 
+-- Specify the path to zsh (can be found using 'which zsh')
+-- config.default_prog = { '/usr/bin/zsh' }
+
 wezterm.on("gui-startup", resurrect.state_manager.resurrect_on_gui_startup)
 
 -- Автосохранение каждые 15 минут

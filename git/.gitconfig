@@ -1,21 +1,139 @@
-[alias]
-	st = status
-	ci = commit
-	br = branch
-	co = checkout
-	safe = "!git config --global --add safe.directory $(pwd)"
-	d = difftool
+########################################
+# USER
+########################################
 [user]
-	email = andreyklochok@gmail.com
-	name = Andrii Klochok
+    name = Andrii Klochok              # твоє ім’я для комітів
+    email = andreyklochok@gmail.com    # email для комітів
+
+########################################
+# CORE SETTINGS
+########################################
 [core]
-	editor = nvim
-	autocrlf = input
-	excludesFile = /home/tofid/.dotfiles/.global-gitignore
-[safe]
-	directory = *
+    editor = vim                        # редактор для commit message (у тебе vim — ок)
+    autocrlf = input                    # конвертує CRLF -> LF при commit (Linux best practice)
+    pager = less -FRX                   # зручний pager (не очищає екран, не блокує scroll)
+    excludesfile = ~/.gitignore_global  # глобальний gitignore
+
+########################################
+# DEFAULTS
+########################################
+[init]
+    defaultBranch = main         # нові репозиторії стартують з main
+
+########################################
+# PULL / REBASE STRATEGY
+########################################
+[pull]
+    rebase = true               # git pull = fetch + rebase (без merge-комітів)
+    autoStash = true            # якщо є незакомічені зміни — stash автоматично
+
+[rebase]
+    autoSquash = true           # автоматично групує fixup/squash коміти
+    updateRefs = true           # оновлює refs після rebase (новіша опція)
+
+########################################
+# FETCH / CLEANUP
+########################################
+[fetch]
+    prune = true                # видаляє локальні гілки, яких нема на remote
+    pruneTags = true            # те ж саме для тегів
+
+########################################
+# PUSH BEHAVIOR
+########################################
+[push]
+    default = simple            # стандартна безпечна поведінка push
+    autoSetupRemote = true      # автоматично додає upstream при першому push
+    followTags = true           # пушить пов’язані теги разом з комітами
+
+########################################
+# MERGE / CONFLICTS
+########################################
+[merge]
+    conflictStyle = zdiff3      # показує base версію в конфліктах (дуже корисно)
+
+[rerere]
+    enabled = true              # запам’ятовує як ти вирішував конфлікти
+
+########################################
+# DIFF SETTINGS
+########################################
 [diff]
-    tool = vimdiff
-[difftool]
-    tool = vimdiff
-    prompt = false
+    algorithm = histogram       # кращий diff для коду (менше шуму)
+    colorMoved = default        # підсвічує переміщений код
+
+########################################
+# SORTING
+########################################
+[branch]
+    sort = -committerdate       # нові гілки зверху
+
+[tag]
+    sort = version:refname      # сортує теги як версії (v1.2.10 > v1.2.2)
+
+########################################
+# HELP / UX
+########################################
+[help]
+    autocorrect = prompt        # Git пропонує виправити помилки в командах
+
+[color]
+    ui = auto                  # автоматично вмикає кольори
+
+########################################
+# ALIASES
+########################################
+[alias]
+
+    #### BASICS ####
+    st = status --short --branch     # короткий статус
+    sb = status --short --branch     # те саме (звичка)
+    br = branch                      # список гілок
+    co = checkout                    # старий checkout
+    sw = switch                      # новий спосіб перемикання гілок
+
+    #### COMMITS ####
+    c = commit                       # git c
+    ca = commit --amend              # змінити останній commit
+    can = commit --amend --no-edit   # amend без зміни повідомлення
+    ci = commit -v                   # commit з виводом змінених файлів
+
+    #### LOGS ####
+    lg = log --graph --decorate --oneline --all  # компактний граф
+    lga = log --graph --decorate --oneline --all # дубль
+    last = log -1 HEAD --stat                    # останній commit
+    lol = log --graph --pretty=format:'%C(yellow)%h%Creset %C(cyan)%ad%Creset %Cgreen(%ar)%Creset %C(auto)%d%Creset %s %C(dim white)- %an%Creset' --date=short
+
+    #### DIFF ####
+    df = diff                      # різниця
+    dc = diff --cached             # staged diff
+
+    #### SYNC ####
+    f = fetch --all --prune --tags # повний fetch
+    up = pull --rebase --autostash # оновити гілку правильно
+
+    #### STASH ####
+    ss = stash push
+    sl = stash list
+    sp = stash pop
+
+    #### CLEANUP ####
+    gone = "!git branch -vv | awk '/: gone]/{print $1}'"
+    # показує локальні гілки без remote
+
+    prune-gone = "!git fetch --prune && git branch -vv | awk '/: gone]/{print $1}' | xargs -r git branch -D"
+    # видаляє такі гілки (обережно!)
+
+    #### UTILITIES ####
+    aliases = config --get-regexp '^alias\\.'   # список alias-ів
+    remotes = remote -v                         # список remote
+    unstage = restore --staged --               # забрати зі staging
+    discard = restore --                        # відмінити зміни
+    whoami = !git config user.name && git config user.email
+
+    #### SAFE FORCE PUSH ####
+    pf = push --force-with-lease   # безпечніший force push
+
+    #### FIXUP WORKFLOW ####
+    fixup = commit --fixup         # створити fixup commit
+    ri = rebase -i                 # інтерактивний rebase

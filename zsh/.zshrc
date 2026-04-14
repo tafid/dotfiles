@@ -134,9 +134,7 @@ alias cc='eval $(ssh-agent); \
   composer/composer'
 alias ls-tmux="tmux list-panes -aF '#{session_name}:#{window_index}:#{pane_index}	#{pane_tty}	#{pane_pid}	#{pane_current_command}'"
 alias get-resource='psql -h localhost -p 50005 -U sol rcp -c "select * from resource where time >= to_month()" --csv -t -q -X > ~/trash/res.csv'
-alias zj='zellij'
 alias copy='xclip -sel clip'
-alias b6='$HOME/.local/bin/brow6el --no-sendbox'
 # alias set-resource='psql -h localhost -p 5432 -U sol rcp -c "\COPY resource FROM /home/tofid/trash/res.csv with delimiter \',\' CSV;"'
 
 # Access device web browser settings using WebHID
@@ -161,35 +159,10 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(zoxide init zsh)"
-
-# opencode
-export PATH=/home/tofid/.opencode/bin:$PATH
 
 # Created by `pipx` on 2025-08-03 14:44:16
 export PATH="$PATH:/home/tofid/.local/bin"
-
-convert2webm() {
-  if [ -z "$1" ]; then
-    echo "❌ Specify the path to the video file"
-    return 1
-  fi
-
-  input="$1"
-
-  if [ ! -f "$input" ]; then
-    echo "❌ File not found: $input"
-    return 1
-  fi
-
-  output="${input%.*}.webm"
-
-  ffmpeg -i "$input" -c:v libaom-av1 -crf 40 -b:v 0 -c:a libopus -b:a 48k "$output"
-}
-
-autoload -Uz bracketed-paste-magic
-zle -N bracketed-paste bracketed-paste-magic
 
 # vi-mode settings
 KEYTIMEOUT=1
@@ -201,3 +174,6 @@ bindkey -M vicmd 'V' edit-command-line # this remaps `vv` to `V` (but overrides 
 # Define NVM directory path
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+eval "$($HOME/.local/bin/mise activate zsh)"
+source "$HOME/.cargo/env"

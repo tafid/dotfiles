@@ -1,4 +1,4 @@
-# move to /etc/systemd/system/
+# ln -s katana.service /etc/systemd/system/
 # sudo systemctl daemon-reload # maybe this will be required when changing the service file
 # sudo systemctl start kanata
 # sudo systemctl enable kanata
@@ -6,9 +6,11 @@
 # kanata --cfg /home/tofid/.dotfiles/kanata.kbd
 [Unit]
 Description=Kanata Service
+Documentation=https://github.com/jtroo/kanata
 
 [Service]
-ExecStart=/home/tofid/.cargo/bin/kanata --cfg /home/tofid/.dotfiles/kanata.kbd
+Type=simple
+ExecStart=/usr/local/bin/kanata --cfg /home/tofid/.config/kanata/kanata.kbd
 Restart=no
 
 [Install]

@@ -65,9 +65,17 @@ TODO.md
 # ignore dotfiles bare repository
 .dotfiles
 
+# ignore .claude directories at any depth
+**/.claude/
+
 # composer
 vendor
 
 # IDE
 .idea
 .vscode
+
+# OS
+node_modules
+vendor
+build

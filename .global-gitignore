@@ -1,4 +1,4 @@
-# git config --global core.excludesFile ~/.dotfiles/.global-gitignore
+# git config --global core.excludesFile ~/dotfiles/.global-gitignore
 # Comments and blank lines are allowed.
 
 RCS

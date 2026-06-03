@@ -1,10 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 export N_PREFIX=$HOME/.n
-export PATH=$N_PREFIX/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH="$N_PREFIX/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/opt/nvim/"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$PATH:/opt/nvim/"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -136,6 +135,7 @@ alias ls-tmux="tmux list-panes -aF '#{session_name}:#{window_index}:#{pane_index
 alias get-resource='psql -h localhost -p 50005 -U sol rcp -c "select * from resource where time >= to_month()" --csv -t -q -X > ~/trash/res.csv'
 alias copy='xclip -sel clip'
 alias wezterm='flatpak run org.wezfurlong.wezterm'
+alias pn=pnpm
 
 # alias set-resource='psql -h localhost -p 5432 -U sol rcp -c "\COPY resource FROM /home/tofid/trash/res.csv with delimiter \',\' CSV;"'
 
@@ -143,8 +143,6 @@ alias wezterm='flatpak run org.wezfurlong.wezterm'
 # @see chrome://device-log
 # @see https://www.reddit.com/r/archlinux/comments/1cas56j/access_mouse_web_browser_settings_using_webhid/
 alias allow-hid="sudo chmod o+rw /dev/hidraw*"
-
-export PATH="$HOME/bin:$PATH"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffdd00,bg=#005f73,bold,underline"
 ZSH_DEISABLE_COMPFIX=true
@@ -162,9 +160,6 @@ function yy() {
 }
 
 eval "$(zoxide init zsh)"
-
-# Created by `pipx` on 2025-08-03 14:44:16
-export PATH="$PATH:/home/tofid/.local/bin"
 
 # vi-mode settings
 KEYTIMEOUT=1

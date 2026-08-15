@@ -1,6 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 export N_PREFIX=$HOME/.n
-export PATH="$N_PREFIX/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/opt/nvim/"
+export PATH="$N_PREFIX/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/opt/nvim/:/opt/nvim-linux-x86_64/bin"
+export COLORTERM=truecolor
+# использовать несколько файлов kubeconfig одновременно и посмотреть объединённую конфигурацию из этих файлов
+# export KUBECONFIG=~/.kube/config:~/Dropbox/configs/kubeconfig-andrey.klochok@advanced.host.yaml
+export KUBECONFIG=~/.kube/config-ahnames.yaml
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -131,18 +135,33 @@ alias cc='eval $(ssh-agent); \
   --env SSH_AUTH_SOCK=/ssh-auth.sock \
   --user $(id -u):$(id -g) \
   composer/composer'
-alias ls-tmux="tmux list-panes -aF '#{session_name}:#{window_index}:#{pane_index}	#{pane_tty}	#{pane_pid}	#{pane_current_command}'"
+# alias ls-tmux="tmux list-panes -aF '#{session_name}:#{window_index}:#{pane_index}	#{pane_tty}	#{pane_pid}	#{pane_current_command}'"
 alias get-resource='psql -h localhost -p 50005 -U sol rcp -c "select * from resource where time >= to_month()" --csv -t -q -X > ~/trash/res.csv'
 alias copy='xclip -sel clip'
 alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias pn=pnpm
+alias k=kubectl
+alias mk=minikube
+complete -F __start_kubectl k
+
+# Быстрый запуск или подключение
+alias t='tmux'
+# Подключиться к последней сессии, а если её нет — создать новую (очень удобно!)
+alias ta='tmux attach -t default || tmux new -s default'
+# Посмотреть список активных сессий
+alias tl='tmux ls'
+# Подключиться к конкретной сессии по имени (использование: tk name)
+alias tk='tmux attach -t'
+
+alias h='herdr'
+alias hr='herdr-reviewr'
 
 # alias set-resource='psql -h localhost -p 5432 -U sol rcp -c "\COPY resource FROM /home/tofid/trash/res.csv with delimiter \',\' CSV;"'
 
 # Access device web browser settings using WebHID
 # @see chrome://device-log
 # @see https://www.reddit.com/r/archlinux/comments/1cas56j/access_mouse_web_browser_settings_using_webhid/
-alias allow-hid="sudo chmod o+rw /dev/hidraw*"
+alias allow-hid="chmod o+rw /dev/hidraw*"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffdd00,bg=#005f73,bold,underline"
 ZSH_DEISABLE_COMPFIX=true
@@ -174,3 +193,21 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 eval "$($HOME/.local/bin/mise activate zsh)"
 source "$HOME/.cargo/env"
+export PATH=$PATH:/snap/bin
+
+# bun completions
+[ -s "/home/tofid/.bun/_bun" ] && source "/home/tofid/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Added by codebase-memory-mcp install
+export PATH="/home/tofid/.local/bin:$PATH"
+
+# opencode
+export PATH=/home/tofid/.opencode/bin:$PATH

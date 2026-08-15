@@ -1,2 +1,9 @@
 .idea/*
 !claude/.claude
+
+# tmux: плагіни, що клонує TPM самостійно (кожен — окремий git-репозиторій)
+tmux/.config/tmux/plugins/
+
+# kitty: runtime-стан, що перезаписується самим kitty
+kitty/.config/kitty/current-theme.conf
+kitty/.config/kitty/last_session.session

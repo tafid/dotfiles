@@ -12,7 +12,7 @@
     editor = vim                        # редактор для commit message (у тебе vim — ок)
     autocrlf = input                    # конвертує CRLF -> LF при commit (Linux best practice)
     pager = less -FRX                   # зручний pager (не очищає екран, не блокує scroll)
-	excludesFile = /home/tofid/dotfiles/.gitignore_global  # глобальний gitignore (для IDE, OS файлів тощо)
+	excludesfile = /home/tofid/.gitignore_global
 
 ########################################
 # DEFAULTS

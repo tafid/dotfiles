@@ -67,7 +67,7 @@ TODO.md
 
 # ignore .claude directories at any depth
 **/.claude/
-
+graphify-out
 # composer
 vendor
 
@@ -79,3 +79,5 @@ vendor
 node_modules
 vendor
 build
+
+**/.history

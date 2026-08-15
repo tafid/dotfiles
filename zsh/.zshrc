@@ -144,6 +144,7 @@ alias k=kubectl
 alias mk=minikube
 complete -F __start_kubectl k
 
+alias lz='lazy-tmux'
 # Быстрый запуск или подключение
 alias t='tmux'
 # Подключиться к последней сессии, а если её нет — создать новую (очень удобно!)

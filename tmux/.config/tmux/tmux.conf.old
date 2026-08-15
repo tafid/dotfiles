@@ -56,7 +56,7 @@ unbind C-Right
 
 # Easy config reload
 unbind r
-bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded."
+bind-key r source-file ~/.config/tmux/tmux.conf \; display-message "~/.config/tmux/tmux.conf reloaded."
 
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
@@ -75,11 +75,11 @@ set -g @plugin 'tmux-plugins/tmux-sessionist'
 # set -g @plugin 'git@bitbucket.com:user/plugin'
 
 # Automatic tpm installation https://github.com/tmux-plugins/tpm/blob/master/docs/automatic_tpm_installation.md
-if "test ! -d ~/.tmux/plugins/tpm" \
-   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
+if "test ! -d ~/.config/tmux/plugins/tpm" \
+   "run 'git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm && ~/.config/tmux/plugins/tpm/bin/install_plugins'"
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
+run '~/.config/tmux/plugins/tpm/tpm'
 
 # Automatic restore, last saved environment is automatically restored when tmux is started.
 # set -g @continuum-restore 'on'

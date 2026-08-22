@@ -8,8 +8,8 @@ focus_pane_down = "prefix+j"
 focus_pane_up = "prefix+k"
 focus_pane_right = "prefix+l"
 # Табы — без prefix, как в Oh My Tmux (gpakosz/tmux)
-previous_tab = "alt+p"
-next_tab = "alt+n"
+previous_tab = "alt+h"
+next_tab = "alt+l"
 
 [theme]
 name = "catppuccin"

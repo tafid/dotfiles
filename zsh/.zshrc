@@ -142,9 +142,10 @@ alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias pn=pnpm
 alias k=kubectl
 alias mk=minikube
+source <(kubectl completion zsh)
 complete -F __start_kubectl k
 
-alias lz='lazy-tmux'
+alias t='tmux'
 # Быстрый запуск или подключение
 alias t='tmux'
 # Подключиться к последней сессии, а если её нет — создать новую (очень удобно!)
@@ -156,6 +157,7 @@ alias tk='tmux attach -t'
 
 alias h='herdr'
 alias hr='herdr-reviewr'
+source <(herdr completion zsh)
 
 # alias set-resource='psql -h localhost -p 5432 -U sol rcp -c "\COPY resource FROM /home/tofid/trash/res.csv with delimiter \',\' CSV;"'
 
@@ -170,13 +172,13 @@ ZSH_DEISABLE_COMPFIX=true
 PROMPT=$'%{$fg_bold[green]%}%n@%m %{$fg[blue]%}%D{[%H:%M:%S]} %{$reset_color%}%{$fg[white]%}[%~]%{$reset_color%} $(git_prompt_info)\
 %{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
 
-function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+
+function y() {
+	local tmp cwd; tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
+	command rm -f -- "$tmp"
 }
 
 eval "$(zoxide init zsh)"

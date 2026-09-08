@@ -21,6 +21,9 @@ set clipboard^=unnamed,unnamedplus
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
+" map <Esc> to jj
+inoremap jj <Esc>
+
 " выделять строку, на которой находится курсор
 set cursorline
 

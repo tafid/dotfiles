@@ -2,11 +2,8 @@ onboarding = false
 
 [keys]
 prefix = "ctrl+a"
-# Панели — hjkl по направлению (как в vim-tmux-navigator, см. ctrl+h/j/k/l ниже)
-focus_pane_left = "prefix+h"
-focus_pane_down = "prefix+j"
-focus_pane_up = "prefix+k"
-focus_pane_right = "prefix+l"
+split_horizontal = "prefix+\\"
+split_vertical = ["prefix+pipe", "prefix+|"]
 # Табы — без prefix, как в Oh My Tmux (gpakosz/tmux)
 previous_tab = "alt+h"
 next_tab = "alt+l"
@@ -26,9 +23,14 @@ width = "90%"
 height = "90%"
 
 [[keys.command]]
-key = "prefix+t"
+key = "prefix+n"
 type = "popup"
 command = "exec \"${SHELL:-sh}\""
+# Панели — hjkl по направлению (как в vim-tmux-navigator, см. ctrl+h/j/k/l ниже)
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
 description = "open scratch terminal"
 width = "80%"
 height = "80%"
@@ -55,6 +57,33 @@ key = "prefix+shift+f"
 type = "plugin_action"
 command = "herdr-file-viewer.open-file-viewer-tab"
 description = "open file viewer in tab"
+
+[[keys.command]]
+key = "prefix+e"
+type = "plugin_action"
+command = "chmarax.herdr-nvim.toggle"
+description = "nvim sidebar"
+
+[[keys.command]]
+key = "prefix+o"
+type = "plugin_action"
+command = "chmarax.herdr-nvim.pick-file"
+description = "open file from agent output"
+
+[sidebar]
+nvim_bin = "nvim"  # binary used to spawn the per-tab nvim daemon
+position = "right" # right (default), left, top, or bottom
+
+[picker]
+scan_lines = 300 # pane lines scanned by the fallback text-scrape
+max_files = 20   # session entries shown before you type a query
+# (a typed query fuzzy-searches the whole repo, uncapped)
+
+[[keys.command]]
+key = "prefix+t"
+type = "plugin_action"
+command = "herdr-navigator.open"
+description = "jump to anything"
 
 [[keys.command]]
 key = "ctrl+h"

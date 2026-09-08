@@ -167,6 +167,8 @@ alias tl='tmux ls'
 alias tk='tmux attach -t'
 
 alias h='herdr'
+alias hl='herdr sessions list'
+alias hss='herdr server stop'
 alias hr='herdr-reviewr'
 source <(herdr completion zsh)
 

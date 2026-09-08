@@ -230,3 +230,41 @@ export PATH=/home/tofid/.opencode/bin:$PATH
 
 source <(kubectl completion zsh)
 complete -F __start_kubectl k
+
+# AI Git Commit Generator
+gai() {
+  # 1. Check if there are staged changes
+  local diff=$(git diff --staged)
+  if [[ -z "$diff" ]]; then
+    print -P "%F{yellow}No staged changes found. Run 'git add' first.%f"
+    return 1
+  fi
+
+  # 2. Send diff to local LLM
+  print -P "%F{cyan}Generating commit message with AI...%f"
+  # local prompt="Write a short, professional git commit message using name of the branch, then `:`, then Conventional Commits format for this diff. Output only the commit message text, no markdown, no quotes, and no explanations."
+  local prompt="You are a Git expert.
+  Your task is to create commit messages based on the changes provided (git diff).
+  Use the Conventional Commits standard but name it by branch name: branch: type(context), short description.
+  Branch: current branch name.
+  Type: feat, fix, docs, style, refactor, test, chore. Write briefly, in the imperative (e.g. 'dd feature', not 'added feature'). Do not add any introductory words, write only the message itself."
+  local commit_msg=$(echo "$diff" | ollama run qwen3:8b "$prompt" 2>/dev/null)
+
+  # 3. Handle empty LLM response
+  if [[ -z "$commit_msg" ]]; then
+    print -P "%F{red}Error: Failed to generate message from Ollama.%f"
+    return 1
+  fi
+
+  # 4. Display prompt and read user input
+  print -P "\n%F{green}Suggested Commit Message:%f"
+  echo "$commit_msg"
+  print -P ""
+
+  if read -q "choice?Apply this commit? (y/n): "; then
+    echo ""
+    git commit -m "$commit_msg"
+  else
+    echo "\nCommit canceled."
+  fi
+}

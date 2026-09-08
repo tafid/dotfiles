@@ -1,4 +1,3 @@
-# If you come from bash you might have to change your $PATH.
 export N_PREFIX=$HOME/.n
 export PATH="$N_PREFIX/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/opt/nvim/:/opt/nvim-linux-x86_64/bin"
 export COLORTERM=truecolor

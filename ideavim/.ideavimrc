@@ -25,7 +25,7 @@ let mapleader=" "
 inoremap jj <Esc>
 
 " выделять строку, на которой находится курсор
-set cursorline
+" set cursorline
 
 " " более удобная работа с кириллицей. При нажатии <C-6> в режиме вставки, vim изменит режим с "Insert" на "Insert (lang)",
 " " после чего будут вводиться русские символы. Если вернуться в нормальный режим, то все команды будут работать.
@@ -74,7 +74,7 @@ set matchit " Extends the % key functionalit
 set NERDTree
 " VimEverywhere " Adds a :VimEverywhere command to open the current file in Vim
 set vim-paragraph-motion " Extends the { and } motions to ignore whitespace on otherwise empty lines
-" set peekaboo " Extends dabble quote, @, CTRL-r to show a popup of the register contents https://plugins.jetbrains.com/plugin/25776-vim-peekaboo
+set peekaboo " Extends dabble quote, @, CTRL-r to show a popup of the register contents https://plugins.jetbrains.com/plugin/25776-vim-peekaboo
 " set sneak
 set quickscope " Always-on highlight for a unique character in every word on a line to help use f, F, etc.
 

@@ -137,3 +137,12 @@
     #### FIXUP WORKFLOW ####
     fixup = commit --fixup         # створити fixup commit
     ri = rebase -i                 # інтерактивний rebase
+[credential "https://github.com"]
+	helper =
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+[credential "https://git.hiqdev.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/Cellar/glab/1.114.0/bin/glab auth git-credential

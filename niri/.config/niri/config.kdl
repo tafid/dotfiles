@@ -283,6 +283,10 @@ workspace "notes"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
+// SyncThingy: tray-only helper, no window/portal race like the daily apps above,
+// safe to spawn at startup so its tray icon is there from session start.
+spawn-at-startup "flatpak" "run" "com.github.zocker_160.SyncThingy"
+
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
     // skip-at-startup

@@ -141,8 +141,6 @@ alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias pn=pnpm
 alias k=kubectl
 alias mk=minikube
-source <(kubectl completion zsh)
-complete -F __start_kubectl k
 
 alias t='tmux'
 # Быстрый запуск или подключение
@@ -213,3 +211,6 @@ export PATH="/home/tofid/.local/bin:$PATH"
 
 # opencode
 export PATH=/home/tofid/.opencode/bin:$PATH
+
+source <(kubectl completion zsh)
+complete -F __start_kubectl k

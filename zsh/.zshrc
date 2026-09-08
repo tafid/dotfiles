@@ -80,6 +80,20 @@ source $ZSH/oh-my-zsh.sh
 
 export FZF_BASE=/usr/bin/fzf
 export FZF_DEFAULT_OPTS='--height 40% --layout reverse --border top'
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+function v() {
+  if [ $# -gt 0 ]; then
+    nvim "$@"
+  else
+    local file
+    file=$(fzf --preview 'bat --color=always --style=numbers --line-range :500 {}')
+    if [[ -n "$file" ]]; then
+        nvim "$file"
+    fi
+  fi
+}
 
 # User configuration
 

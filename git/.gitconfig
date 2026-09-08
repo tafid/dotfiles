@@ -9,7 +9,7 @@
 # CORE SETTINGS
 ########################################
 [core]
-    editor = vim                        # редактор для commit message (у тебе vim — ок)
+    editor = nvim                       # редактор для commit message (у тебе vim — ок)
     autocrlf = input                    # конвертує CRLF -> LF при commit (Linux best practice)
     pager = less -FRX                   # зручний pager (не очищає екран, не блокує scroll)
 	excludesfile = /home/tofid/.gitignore_global

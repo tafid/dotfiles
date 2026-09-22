@@ -165,6 +165,7 @@ alias ta='tmux attach -t default || tmux new -s default'
 alias tl='tmux ls'
 # Подключиться к конкретной сессии по имени (использование: tk name)
 alias tk='tmux attach -t'
+alias s="kitten ssh"
 
 alias h='herdr'
 alias hl='herdr sessions list'

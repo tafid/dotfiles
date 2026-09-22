@@ -290,3 +290,5 @@ EOF
   # ollama run qwen2.5-coder:7b "$SYSTEM_PROMPT\n\nКористувач: $*"
   ollama run llama3 "$SYSTEM_PROMPT\n\nКористувач: $*"
 }
+
+source <(jiratui completions zsh)

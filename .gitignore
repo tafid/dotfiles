@@ -7,6 +7,12 @@ tmux/.config/tmux/plugins/
 # kitty: runtime-стан, що перезаписується самим kitty
 kitty/.config/kitty/current-theme.conf
 kitty/.config/kitty/last_session.session
+# kitty: auto-generated OS light/dark theme sync files — override manual
+# tab/color config regardless of include order, must not exist (see
+# https://danklinux.com/docs/dankmaterialshell/application-themes)
+kitty/.config/kitty/dark-theme.auto.conf
+kitty/.config/kitty/light-theme.auto.conf
+kitty/.config/kitty/no-preference-theme.auto.conf
 
 # niri: automatic configuration backups
 niri/.config/niri/config.kdl.backup*

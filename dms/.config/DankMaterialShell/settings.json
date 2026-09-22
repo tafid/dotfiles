@@ -9,6 +9,7 @@
   "touchpadScrollFactor": 2,
   "keyboardLayouts": "us,ru,ua",
   "blurEnabled": true,
+  "blurWallpaperOnOverview": true,
   "controlCenterShowMicPercent": true,
   "showWorkspacePadding": true,
   "showWorkspaceApps": true,

@@ -1,0 +1,3 @@
+binds {
+    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "warp"; }
+}

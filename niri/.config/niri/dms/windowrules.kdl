@@ -1,0 +1,18 @@
+// DMS Window Rules - Managed by DankMaterialShell
+// Do not edit manually - changes may be overwritten
+
+// @id=dms-floating-windows @name=DMS Floating Windows
+window-rule {
+    match app-id="^com.danklinux.dms$"
+    open-floating true
+}
+
+// @id=wr_1788811146324116596 @name=org.telegram.desktop
+window-rule {
+    match title="Media viewer" is-floating=true
+}
+
+// @id=wr_1788880373101628844 @name=chromium-browser
+window-rule {
+    match app-id="^chromium-browser$" is-floating=true is-active-in-column=false is-window-cast-target=false is-urgent=false at-startup=false
+}

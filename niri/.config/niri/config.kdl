@@ -111,7 +111,7 @@ input {
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 16
+    gaps 10
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -138,7 +138,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 0.66667; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
@@ -271,7 +271,8 @@ layout {
 // Order here determines their order in the workspace list.
 workspace "browser"
 workspace "code"
-workspace "chat"
+workspace "terminal"
+workspace "chats"
 workspace "notes"
 
 // Daily app set (Chrome, PhpStorm, Slack, Telegram, Obsidian) is launched manually
@@ -371,19 +372,37 @@ window-rule {
 }
 window-rule {
     match app-id=r#"^dev\.warp\.Warp$"#
-    open-on-workspace "code"
+    open-on-workspace "terminal"
 }
 window-rule {
+    match app-id=r#"^kitty$"#
+    open-on-workspace "terminal"
+}
+// window-rule {
+//     match app-id=r#"^chromium-browser$"#
+//     exclude app-id="^google-chrome$"
+//     exclude title="^Goole Chrome$"
+//     open-on-workspace "terminal"
+//     match is-active=false
+// }
+window-rule {
     match app-id=r#"^com\.slack\.Slack$"#
-    open-on-workspace "chat"
+    open-on-workspace "chats"
 }
 window-rule {
     match app-id=r#"^org\.telegram\.desktop$"#
-    open-on-workspace "chat"
+    open-on-workspace "chats"
+    block-out-from "screencast"
+}
+window-rule {
+    match title="^Media viewer$"
+    open-floating true
+    open-fullscreen false
 }
 window-rule {
     match app-id=r#"^md\.obsidian\.Obsidian$"#
     open-on-workspace "notes"
+    block-out-from "screencast"
 }
 
 binds {
@@ -392,9 +411,9 @@ binds {
 
     // Direct layout selection: jump straight to a layout instead of cycling.
     // Order matches "us,ru,ua" in dms/input.kdl: 0=us, 1=ru, 2=ua.
-    Mod+Alt+1 { switch-layout "0"; }
-    Mod+Alt+2 { switch-layout "1"; }
-    Mod+Alt+3 { switch-layout "2"; }
+    Ctrl+F1 { switch-layout "0"; }
+    Ctrl+F2 { switch-layout "1"; }
+    Ctrl+F3 { switch-layout "2"; }
 
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -420,7 +439,7 @@ binds {
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
@@ -687,9 +706,12 @@ binds {
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Shift+P { power-off-monitors; }
+    // Mod+Shift+P { power-off-monitors; }
+
+    Mod+Space { spawn "dms" "ipc" "call" "launcher" "toggle"; }
 }
 
 // DMS Include Configs
 include "dms/outputs.kdl"
 include "dms/input.kdl"
+include "dms/binds.kdl"

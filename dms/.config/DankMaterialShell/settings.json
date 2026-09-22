@@ -1,12 +1,28 @@
 {
+  "currentThemeName": "dynamic",
+  "currentThemeCategory": "dynamic",
+  "customThemeFile": "/home/tofid/.config/DankMaterialShell/themes/catppuccin/theme.json",
+  "matugenScheme": "scheme-smart",
+  "matugenSourceMode": "saturation",
   "cornerRadius": 12,
   "touchpadAccelSpeed": 0.4,
   "touchpadScrollFactor": 2,
   "keyboardLayouts": "us,ru,ua",
+  "blurEnabled": true,
   "controlCenterShowMicPercent": true,
+  "showWorkspacePadding": true,
   "showWorkspaceApps": true,
   "groupActiveWorkspaceApps": true,
+  "showOccupiedWorkspacesOnly": true,
+  "reverseScrolling": true,
   "appIdSubstitutions": [],
+  "spotlightSectionViewModes": {
+    "apps": "list",
+    "plugin_niriWindows": "list"
+  },
+  "dankLauncherV2IncludeFilesInAll": true,
+  "dankLauncherV2IncludeFoldersInAll": true,
+  "networkPreference": "wifi",
   "cursorSettings": {
     "theme": "System Default",
     "size": 24,
@@ -23,6 +39,7 @@
       "cursorHideTimeout": 0
     }
   },
+  "batteryChargeLimit": 85,
   "dockSmartAutoHide": true,
   "osdPowerProfileEnabled": true,
   "screenPreferences": {
@@ -46,7 +63,10 @@
           "id": "launcherButton",
           "enabled": false
         },
-        "workspaceSwitcher",
+        {
+          "id": "workspaceSwitcher",
+          "enabled": true
+        },
         {
           "id": "focusedWindow",
           "enabled": true,
@@ -65,6 +85,10 @@
       ],
       "rightWidgets": [
         {
+          "id": "wallpaperDiscovery",
+          "enabled": true
+        },
+        {
           "id": "systemTray",
           "enabled": true,
           "trayUseInlineExpansion": false,
@@ -73,7 +97,10 @@
           "trayPopupSingleLine": true,
           "trayIconSpacing": 5
         },
-        "clipboard",
+        {
+          "id": "clipboard",
+          "enabled": false
+        },
         "cpuUsage",
         "memUsage",
         "notificationButton",
@@ -176,5 +203,20 @@
       "trigger": "qrg"
     }
   },
+  "launcherPluginVisibility": {
+    "niriWindows": {
+      "allowWithoutTrigger": true
+    }
+  },
+  "launcherPluginOrder": [
+    "niriWindows",
+    "dms_power",
+    "dms_qr_generator",
+    "dms_settings_search",
+    "dms_clipboard_search",
+    "niriWorkspaces",
+    "__files",
+    "__folders"
+  ],
   "configVersion": 17
 }

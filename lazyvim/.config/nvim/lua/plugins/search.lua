@@ -2,6 +2,7 @@
 local show_all = {
   hidden = true,
   ignored = true,
+  follow = true,
   exclude = { ".git/", "node_modules/" }, -- мусор, в котором искать не нужно
 }
 

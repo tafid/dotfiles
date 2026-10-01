@@ -9,8 +9,8 @@ previous_tab = "alt+h"
 next_tab = "alt+l"
 
 [theme]
-name = "catppuccin"
-auto_switch = true
+name = "one-light"
+auto_switch = false
 light_name = "catppuccin-latte"
 dark_name = "catppuccin"
 

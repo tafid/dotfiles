@@ -1,3 +1,6 @@
 binds {
+    Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
+    Mod+P hotkey-overlay-title="Power Menu: Toggle" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
+    Mod+S hotkey-overlay-title="Settings: Toggle" { spawn "dms" "ipc" "call" "settings" "toggle"; }
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "warp"; }
 }

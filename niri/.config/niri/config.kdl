@@ -715,3 +715,11 @@ binds {
 include "dms/outputs.kdl"
 include "dms/input.kdl"
 include "dms/binds.kdl"
+include "dms/cursor.kdl"
+include "dms/layout.kdl"
+
+// Render on the AMD iGPU; NVIDIA dGPU is left for CUDA (Ollama).
+// by-path is stable across boots, renderD* numbering is not.
+debug {
+    render-drm-device "/dev/dri/by-path/pci-0000:66:00.0-render"
+}

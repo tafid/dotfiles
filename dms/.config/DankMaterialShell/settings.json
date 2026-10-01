@@ -1,15 +1,28 @@
 {
   "currentThemeName": "dynamic",
   "currentThemeCategory": "dynamic",
-  "customThemeFile": "/home/tofid/.config/DankMaterialShell/themes/catppuccin/theme.json",
-  "matugenScheme": "scheme-smart",
-  "matugenSourceMode": "saturation",
+  "customThemeFile": "/home/tofid/.config/DankMaterialShell/themes/tokyoNightStorm/theme.json",
+  "registryThemeVariants": {
+    "catppuccin": {
+      "dark": {
+        "flavor": "mocha",
+        "accent": "mauve"
+      },
+      "light": {
+        "flavor": "latte",
+        "accent": "mauve"
+      }
+    }
+  },
+  "matugenScheme": "scheme-fidelity",
+  "matugenSourceMode": "lightness",
   "cornerRadius": 12,
   "touchpadAccelSpeed": 0.4,
   "touchpadScrollFactor": 2,
   "keyboardLayouts": "us,ru,ua",
   "blurEnabled": true,
   "blurWallpaperOnOverview": true,
+  "wallpaperBackgroundColorMode": "primary",
   "controlCenterShowMicPercent": true,
   "showWorkspacePadding": true,
   "showWorkspaceApps": true,
@@ -40,8 +53,11 @@
       "cursorHideTimeout": 0
     }
   },
+  "launcherLogoMode": "compositor",
   "batteryChargeLimit": 85,
   "dockSmartAutoHide": true,
+  "notificationHistoryEnabled": false,
+  "notificationHistoryMaxAgeDays": 1,
   "osdPowerProfileEnabled": true,
   "screenPreferences": {
     "wallpaper": [
@@ -219,5 +235,5 @@
     "__files",
     "__folders"
   ],
-  "configVersion": 17
+  "configVersion": 18
 }

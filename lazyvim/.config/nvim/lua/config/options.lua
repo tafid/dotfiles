@@ -1,3 +1,12 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
+
+-- Примеры (раскомментировать по необходимости):
+-- vim.opt.relativenumber = false   -- отключить относительные номера строк
+-- vim.opt.scrolloff = 8            -- отступ курсора от края экрана
+-- vim.opt.wrap = true              -- перенос длинных строк
+-- vim.g.autoformat = false         -- глобально выключить автоформат при сохранении
+-- vim.g.lazyvim_picker = "snacks"  -- выбор пикера: "snacks" | "telescope" | "fzf" (по умолчанию snacks)
+--
+-- Здесь только vim.opt / vim.g. Настройки плагинов -> lua/plugins/*.lua

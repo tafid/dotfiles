@@ -6,3 +6,12 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- Примеры:
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = { "markdown", "gitcommit" },
+--   callback = function() vim.opt_local.wrap = true end,
+-- })
+--
+-- Группы автокоманд LazyVim начинаются с `lazyvim_`; чтобы отключить дефолтную:
+-- vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")

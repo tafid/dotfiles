@@ -7,6 +7,9 @@ split_vertical = "prefix+|"
 # Табы — без prefix, как в Oh My Tmux (gpakosz/tmux)
 previous_tab = "alt+h"
 next_tab = "alt+l"
+# Spaces (workspaces)
+previous_workspace = "alt+k"
+next_workspace = "alt+j"
 
 [theme]
 name = "one-light"

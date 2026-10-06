@@ -12,10 +12,16 @@ previous_workspace = "alt+k"
 next_workspace = "alt+j"
 
 [theme]
-name = "one-light"
+name = "terminal"
 auto_switch = false
 light_name = "catppuccin-latte"
 dark_name = "catppuccin"
+
+[theme.custom]
+overlay0 = "#4c4f69"
+overlay1 = "#4c4f69"
+text = "#4c4f69"
+subtext0 = "#4c4f69"
 
 [[keys.command]]
 key = "prefix+alt+g"

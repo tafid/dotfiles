@@ -12,7 +12,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="candy"
+ZSH_THEME="crcandy"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -139,16 +139,16 @@ alias cu='eval $(ssh-agent); dc run -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOC
 alias ca='eval $(ssh-agent); dc run -v $SSH_AUTH_SOCK:/ssh_agent -e SSH_AUTH_SOCK=/ssh_agent php-fpm sh -c "apk update; composer self-update; bash"'
 alias nginx-proxy="docker network create nginx-proxy-network-127.0.0.2; docker run -d -p 80:80 --rm --network nginx-proxy-network-127.0.0.2 -v /home/tofid/.nginx_proxy.conf:/etc/nginx/conf.d/nginx_proxy.conf:ro -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy"
 alias c='composer'
-alias cc='eval $(ssh-agent); \
-  docker run --rm --interactive --tty \
-  --volume $PWD:/app \
-  --volume $SSH_AUTH_SOCK:/ssh-auth.sock \
-  --volume /etc/passwd:/etc/passwd:ro \
-  --volume /etc/group:/etc/group:ro \
-  --env SSH_AUTH_SOCK=/ssh-auth.sock \
-  --user $(id -u):$(id -g) \
-  composer/composer'
-# alias ls-tmux="tmux list-panes -aF '#{session_name}:#{window_index}:#{pane_index}	#{pane_tty}	#{pane_pid}	#{pane_current_command}'"
+# alias cc='eval $(ssh-agent); \
+#   docker run --rm --interactive --tty \
+#   --volume $PWD:/app \
+#   --volume $SSH_AUTH_SOCK:/ssh-auth.sock \
+#   --volume /etc/passwd:/etc/passwd:ro \
+#   --volume /etc/group:/etc/group:ro \
+#   --env SSH_AUTH_SOCK=/ssh-auth.sock \
+#   --user $(id -u):$(id -g) \
+#   composer/composer'
+alias ls-tmux="tmux list-panes -aF '#{session_name}:#{window_index}:#{pane_index}	#{pane_tty}	#{pane_pid}	#{pane_current_command}'"
 alias get-resource='psql -h localhost -p 50005 -U sol rcp -c "select * from resource where time >= to_month()" --csv -t -q -X > ~/trash/res.csv'
 alias copy='xclip -sel clip'
 alias wezterm='flatpak run org.wezfurlong.wezterm'
@@ -172,6 +172,9 @@ alias hl='herdr sessions list'
 alias hss='herdr server stop'
 alias hr='herdr-reviewr'
 source <(herdr completion zsh)
+
+alias cc='claude'
+alias cr='claude --resume'
 
 # alias set-resource='psql -h localhost -p 5432 -U sol rcp -c "\COPY resource FROM /home/tofid/trash/res.csv with delimiter \',\' CSV;"'
 
@@ -293,3 +296,6 @@ EOF
 }
 
 source <(jiratui completions zsh)
+
+# Added by the Hunk installer (https://hunk.dev)
+export PATH='/home/tofid/.hunk/bin':"$PATH"

@@ -11,6 +11,8 @@ switch_tab = "alt+1..9"
 # Spaces (workspaces)
 previous_workspace = "alt+k"
 next_workspace = "alt+j"
+# Сайдбар: свернуть/развернуть
+toggle_sidebar = "prefix+b"
 
 [theme]
 name = "terminal"

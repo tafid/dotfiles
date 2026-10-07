@@ -1,7 +1,7 @@
 {
-  "currentThemeName": "dynamic",
-  "currentThemeCategory": "dynamic",
-  "customThemeFile": "/home/tofid/.config/DankMaterialShell/themes/tokyoNightStorm/theme.json",
+  "currentThemeName": "custom",
+  "currentThemeCategory": "registry",
+  "customThemeFile": "/home/tofid/.config/DankMaterialShell/themes/darkmatter/theme.json",
   "registryThemeVariants": {
     "catppuccin": {
       "dark": {

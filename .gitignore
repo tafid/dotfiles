@@ -16,3 +16,10 @@ kitty/.config/kitty/no-preference-theme.auto.conf
 
 # niri: automatic configuration backups
 niri/.config/niri/config.kdl.backup*
+
+# DMS: файлы, которые DankMaterialShell генерирует сам из dms/settings.json
+# (binds.kdl написан руками — остаётся в git)
+kitty/.config/kitty/dank-theme.conf
+kitty/.config/kitty/dank-tabs.conf
+niri/.config/niri/dms/*.kdl
+!niri/.config/niri/dms/binds.kdl

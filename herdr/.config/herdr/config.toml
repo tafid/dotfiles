@@ -2,7 +2,7 @@ onboarding = false
 
 [keys]
 prefix = "ctrl+a"
-split_horizontal = "prefix+\\"
+split_horizontal = "prefix+-"
 split_vertical = "prefix+|"
 # Табы — без prefix, как в Oh My Tmux (gpakosz/tmux)
 previous_tab = "alt+h"

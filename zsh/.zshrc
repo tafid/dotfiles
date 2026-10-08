@@ -171,6 +171,7 @@ alias h='herdr'
 alias hl='herdr sessions list'
 alias hss='herdr server stop'
 alias hr='herdr-reviewr'
+alias hma='herdr machine add'  # сохранить SSH-машину для herdr --machine / --remote
 source <(herdr completion zsh)
 
 alias cc='claude'
@@ -299,3 +300,4 @@ source <(jiratui completions zsh)
 
 # Added by the Hunk installer (https://hunk.dev)
 export PATH='/home/tofid/.hunk/bin':"$PATH"
+eval "$(/home/tofid/.local/bin/mise activate zsh)"

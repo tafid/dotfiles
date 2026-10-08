@@ -12,6 +12,8 @@ switch_tab = "alt+1..9"
 previous_workspace = "alt+k"
 next_workspace = "alt+j"
 switch_workspace = "alt+shift+1..9"
+# Назад к последней активной панели (глобально, через workspaces)
+last_pane = "prefix+tab"
 # Сайдбар: свернуть/развернуть
 toggle_sidebar = "prefix+b"
 

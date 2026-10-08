@@ -36,7 +36,7 @@ return {
     -- fixes its layout at creation, so this only floats when no session is running
     -- yet; an already-open split session stays a split.
     {
-      "<M-,>",
+      "<A-,>",
       function()
         require("claudecode.terminal").focus_toggle({
           snacks_win_opts = {
@@ -45,7 +45,7 @@ return {
             height = 0.9,
             keys = {
               claude_hide = {
-                "<M-,>",
+                "<A-,>",
                 function(self)
                   self:hide()
                 end,

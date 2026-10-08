@@ -300,4 +300,3 @@ source <(jiratui completions zsh)
 
 # Added by the Hunk installer (https://hunk.dev)
 export PATH='/home/tofid/.hunk/bin':"$PATH"
-eval "$(/home/tofid/.local/bin/mise activate zsh)"

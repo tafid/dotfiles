@@ -12,7 +12,10 @@ switch_tab = "alt+1..9"
 previous_workspace = "alt+k"
 next_workspace = "alt+j"
 switch_workspace = "alt+shift+1..9"
-# Назад к последней активной панели (глобально, через workspaces)
+# Back-and-forth: прыжок на предыдущую активную панель (ctrl+a, tab).
+# last_pane работает глобально — если прошлая панель в другом workspace/табе,
+# переключит туда. Отдельного last_workspace в herdr нет, это его замена:
+# previous/next_workspace листают по порядку списка, а не по истории.
 last_pane = "prefix+tab"
 # Сайдбар: свернуть/развернуть
 toggle_sidebar = "prefix+b"

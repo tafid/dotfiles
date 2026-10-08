@@ -32,6 +32,32 @@ return {
     { "<leader>a", nil, desc = "AI/Claude Code" },
     { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
     { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
+    -- Same smart focus/toggle, but as a float. The plugin keeps one terminal and
+    -- fixes its layout at creation, so this only floats when no session is running
+    -- yet; an already-open split session stays a split.
+    {
+      "<M-,>",
+      function()
+        require("claudecode.terminal").focus_toggle({
+          snacks_win_opts = {
+            position = "float",
+            width = 0.9,
+            height = 0.9,
+            keys = {
+              claude_hide = {
+                "<M-,>",
+                function(self)
+                  self:hide()
+                end,
+                mode = "t",
+                desc = "Hide",
+              },
+            },
+          },
+        })
+      end,
+      desc = "Claude (float)",
+    },
     { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
     { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
     { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },

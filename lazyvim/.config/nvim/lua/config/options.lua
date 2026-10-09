@@ -10,3 +10,4 @@
 -- vim.g.lazyvim_picker = "snacks"  -- выбор пикера: "snacks" | "telescope" | "fzf" (по умолчанию snacks)
 --
 -- Здесь только vim.opt / vim.g. Настройки плагинов -> lua/plugins/*.lua
+-- ~/.config/nvim/ftplugin/python.lua

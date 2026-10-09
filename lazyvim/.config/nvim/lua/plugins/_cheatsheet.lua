@@ -1,6 +1,8 @@
 -- Шпаргалка по lua/plugins/*.lua. Файл не загружается (return {}), можно удалить.
 -- Реальные примеры: example.lua. Подключение языков/наборов: :LazyExtras
-if true then return {} end
+if true then
+  return {}
+end
 
 -- Каждый файл в lua/plugins/ возвращает таблицу спеков; спек плагина LazyVim
 -- СЛИВАЕТСЯ с родным, поэтому указываем только то, что меняем.
@@ -9,13 +11,21 @@ return {
   { "folke/snacks.nvim", opts = { picker = { sources = { files = { hidden = true } } } } },
 
   -- Изменить уже собранные опции функцией (например, дополнить список)
-  { "plugin/name", opts = function(_, opts) table.insert(opts.sources, { name = "x" }) end },
+  {
+    "plugin/name",
+    opts = function(_, opts)
+      table.insert(opts.sources, { name = "x" })
+    end,
+  },
 
   -- Клавиши: добавить / переопределить / отключить (false)
-  { "folke/snacks.nvim", keys = {
-    { "<leader>/", false },
-    { "<leader>fp", function() end, desc = "Описание" },
-  } },
+  {
+    "folke/snacks.nvim",
+    keys = {
+      { "<leader>/", false },
+      { "<leader>fp", function() end, desc = "Описание" },
+    },
+  },
 
   -- Добавить новый плагин
   { "user/repo", event = "VeryLazy", opts = {} },
